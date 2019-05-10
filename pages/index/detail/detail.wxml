@@ -1,0 +1,71 @@
+<!--pages/index/detail/detail.wxml-->
+<view class="detail">
+  <view class='image-box'>
+    <!-- 轮播图 -->
+    <swiper class="swiper_box" indicator-dots autoplay interval="3000" interval="3000">
+      <view bindtap="imgYu" wx:for="{{detail.thumbs}}" wx:key="index" data-list="{{detail.thumbs}}" data-src="{{uploadUrl}}/images/{{item}}">
+        <swiper-item style='display: table-cell;vertical-align: middle;text-align: center;'>
+            <image class='scrollImg' src="{{uploadUrl}}/images/{{item}}"></image>
+        </swiper-item>
+      </view>
+    </swiper>
+    <view>
+      <button wx:if="{{detail.isAttension == 1}}" class='followbtn'>已喜欢</button>
+      <form bindsubmit="formSubmit" report-submit wx:else>
+         <button formType="submit" wx:if="{{detail.isSelf == 0}}"  class='followbtn'>喜欢Ta</button>
+      </form>
+    </view>
+    <!-- <image src="{{detail.iconPath}}" bindtap='showDetail'></image> -->
+    <view class='image-head'>
+      <text>{{detail.nickname}}</text> 
+      <image src="../../../images/icons/certified.png" mode='widthFix' style='width:10px;height:10px;display:inline-block;padding-left:5px;vertical-align: middle;'></image><text class='authent'>已认证</text>
+    </view>
+    <view class='image-foot'>
+      <text>{{detail.sex}}</text><text>{{detail.age}}岁</text><text>{{detail.height}}cm</text><text>{{detail.education}}</text><text style='white-space:nowrap;'>{{detail.house_status}}</text>
+    </view>
+  </view>
+  <view class='other'>
+    <view class='title-subclass'>Ta的基本情况</view>
+    <view class='info'>
+      <text>户籍地</text><text class='info-right'>{{detail.native_place}}</text>
+    </view>
+    <view class='info'>
+      <text>婚姻状况</text><text class='info-right'>{{detail.marry_status}}</text>
+    </view>
+    <view class='info'>
+      <text>工作地</text><text class='info-right'>{{detail.office_place}}</text>
+    </view>
+    <view class='info'>
+      <text>职业</text><text class='info-right'>{{detail.profession}}</text>
+    </view>
+    <view class='info'>
+      <text>月收入</text><text class='info-right'>{{detail.salary}}</text>
+    </view>
+    <view>
+      <view class="title-subclass">Ta的个人介绍</view>
+        <view class='introduce'>{{detail.introduction}}</view>
+    </view>
+    <view>
+        <view class="title-subclass">Ta的择偶要求</view>
+        <view class='introduce'>{{detail.request}}</view>
+    </view>
+    <view wx:if="{{detail.isSelf == 1 || detail.isScan == 1}}">
+        <text>微信号</text><text class='info-right'>{{detail.wechat}}</text>
+    </view>
+    <view wx:else style='display:flex;'>
+      <form bindsubmit='scan' report-submit style='flex: 1;'>
+        <button formType="submit" class='contact'>查看联系方式</button>
+        </form>
+      <form bindsubmit='redLine' report-submit id="0" style='flex: 1;'>
+        <button formType="submit" class='contact'>客服牵线 1</button>
+      </form>
+      <form bindsubmit='redLine' report-submit id="1" style='flex: 1;'>
+        <button formType="submit" class='contact'>客服牵线 2</button>
+      </form>
+      <form bindsubmit='redLine' report-submit id="2" style='flex: 1;'>
+        <button formType="submit" class='contact'>客服牵线 3</button>
+      </form>
+    </view>
+    <view style='color:#999;font-size:22rpx;'>60积分可以查看一个联系方式，签到和分享到微信群可获得相应积分哦~</view>
+  </view>
+</view>

@@ -1,0 +1,58 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/index/detail/detail",
+    "pages/enroll/enroll",
+    "pages/my/my",
+    "pages/my/integral/integral",
+    "pages/my/suggest/suggest",
+    "pages/my/notify/notify",
+    "pages/my/setting/setting",
+    "pages/index/detail/words/words",
+    "pages/my/aboutUs/aboutUs",
+    "pages/my/help/help",
+    "pages/my/activity/activity",
+    "pages/my/redAppliate/redAppliate",
+    "pages/my/redAppliate/spread/spread",
+    "pages/my/redAppliate/fans/fans",
+    "pages/my/redAppliate/info/info"
+  ],
+  "window": {
+    "backgroundColor": "#ee99ff",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ee99ff",
+    "navigationBarTitleText": "桃邀",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh": false
+  },
+  "tabBar": {
+    "color": "#666",
+    "borderStyle": "#333",
+    "selectedColor": "#ee99ff",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "单身广场",
+        "iconPath": "images/icons/heart.png",
+        "selectedIconPath": "images/icons/heart-select.png"
+      },
+      {
+        "pagePath": "pages/enroll/enroll",
+        "text": "喜欢",
+        "iconPath": "images/icons/enroll.png",
+        "selectedIconPath": "images/icons/enroll-select.png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "images/icons/my.png",
+        "selectedIconPath": "images/icons/my-select.png"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 10000,
+    "downloadFile": 10000
+  },
+  "debug": true
+}

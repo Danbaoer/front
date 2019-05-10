@@ -1,0 +1,11 @@
+<!--pages/message/leave-message/leave-message.wxml-->
+<view class='container'>
+	<form class='other' report-submit bindsubmit="formSubmit" bindreset="formReset">
+	    <view style='height:34px;line-height:34px;'>我想对Ta说</view>
+		  <textarea focus name="message" value='{{form_info}}' bindinput="messageInput"></textarea>
+	    <view style='text-align:right;padding-top:15px;color: #4ccdfc;padding-right:50rpx;'>
+	      <text bindtap="reset" style='padding-right:6px;'>取消</text>
+	      <text bindtap="send">发送</text>
+	    </view>
+	</form>
+</view>

@@ -1,0 +1,10 @@
+<!--pages/message/leave-message/leave-message.wxml-->
+<view class='container'>
+	<form class='other' bindsubmit="formSubmit" bindreset="formReset">
+	  <view class='title-gray'>意见反馈</view>
+	  <textarea focus name="suggest"  value='{{form_info}}' style='margin-left:15rpx;'></textarea>
+	  <view class='tel'>如果不介意的话，请在下方留下您的联系方式</view>
+	  <input type='number' maxlength="11" name="mobile" value='{{mobile}}' cursor-spacing='20' class='telNum'></input>
+	  <button class='submit-suggest' formType="submit">提交意见</button>
+	</form>
+</view>

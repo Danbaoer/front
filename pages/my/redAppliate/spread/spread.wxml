@@ -1,0 +1,5 @@
+<!--pages/my/redAppliate/spread/spread.wxml-->
+<view class='container'>
+  <image src='{{imgUrl}}' style="background-size:100%;width:100%;height:100%;"></image>
+  <view bindtap='save' style='position:fixed;bottom:5px;left:35vw;border-radius:8px;padding:4px 8px;color:#fff;background:#f4a6cd;'>保存图片到相册</view>
+</view>

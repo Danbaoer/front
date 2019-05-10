@@ -1,0 +1,57 @@
+<!--pages/my/help/help.wxml-->
+<view class='help'>
+  <view class='title'>
+  1.如何才能体验到小程序的所有功能？
+  </view>
+  <view class='content'>
+  进入小程序后，您可以看到部分会员的部分信息，您“授权登录”后即可使用小程序的所有功能。
+  </view>
+  <view class='title'>
+  2.如何进行“授权登录”？
+  </view>
+  <view class='content'>
+  进入小程序后，点击右下角“我的”，即可看到“授权登录”按钮，点击允许授权后，显示您的微信头像和昵称，说明授权登录成功（您可以放心授权，小程序仅获取您的头像和昵称用于展示，不作他用）。
+  </view>
+  <view class='title'>
+  3.“签到”有什么作用？
+  </view>
+  <view class='content'>
+  签到可获得相应积分，连续签到单次获得积分越多，最高单次可获得10个积分，中间断签后，从6开始。
+  </view>
+  <view class='title'>
+  4.如何查看会员的详细资料？
+  </view>
+  <view class='content'>
+  进入小程序后，在“单身广场”页，点击照片即可进入会员详情。
+  </view>
+  <view class='title'>
+  5.喜欢会员后，有什么用？
+  </view>
+  <view class='content'>
+  喜欢会员后，您会出现在对方的喜欢列表，对方可以直接了解您的信息，促进进一步了解。
+  </view>
+  <view class='title'>
+  6.如何跟会员取得联系？
+  </view>
+  <view class='content'>
+  为了防止对会员造成骚扰，我们暂不支持主动联系对方
+  <view>（1）您可以使用60个积分换取对方的微信方式，但对方是否同意加微信好友，取决于对方；</view>
+  <view>（2）您可以联系红娘，经对方同意，由红娘帮您联系。</view>
+  </view>
+  <view class='title'>
+  7.如何获得积分？
+  </view>
+  <view class='content'>
+  <view>通过首页右上角的“签到”功能，进行签到获取相应积分(点击页面右上方的“··· ”转发小程序，邀请更多好友一起脱单吧！)。</view>
+  </view>
+  <view class='title'>
+  8.如何在小程序中展示自己？</view>
+  <view class='content'>
+    “授权登录”后，在“我的”页面，点击“我要脱单”即可填写并修改个人信息，按要求填写后提交申请，8小时内人工审核反馈，通过审核后自己的资料就会展示在小程序中。
+  </view>
+  <view class='title'>补充说明：</view>
+  <view class='content'>
+  请遵守相关填写规则，我们会严格审核，通过后才会展示出来，我们会负责您的信息安全，但是我们也保留删除不合规定或法律的资料的权力。
+  </view>
+  <view class='content'>如有其它需要帮助，可以在“我的”页中的“我有意见”中留下宝贵意见，谢谢配合！祝您生活愉快！</view>
+</view>

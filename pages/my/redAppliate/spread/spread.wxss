@@ -1,0 +1,4 @@
+/* pages/my/redAppliate/spread/spread.wxss */
+page{
+  height: 100%;
+}

@@ -1,0 +1,24 @@
+/* pages/message/leave-message/leave-message.wxss */
+.tel{
+  padding-top: 10px;
+  padding-left: 15rpx;
+  height:30px;
+  line-height: 30px;
+}
+.telNum{
+  height:30px;
+  display: block;
+  width: 95%;
+  margin: 6px auto;
+  border: 1px solid #e2e2e2;
+  border-radius: 6px;
+}
+.submit-suggest{
+  color:#fff;
+  width: 28vw;
+  position: fixed;
+  bottom: 4vh;
+  left: 35vw;
+  background:#ee99ff;
+  font-size: 30rpx;
+}

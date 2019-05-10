@@ -1,0 +1,75 @@
+<!--pages/my/redAppliate/fans/fans.wxml-->
+<view class="container">
+  <view class='nav bc_white'>
+    <!--已注册-->
+    <view class="{{tab == 'selected'?'selectColor':'default'}}" bindtap="selected">已注册     </view>
+    <!--已约见-->
+    <view class="{{tab == 'selected1'?'selectColor':'default'}}" bindtap="selected1">已约见</view>
+    <!--已入会-->
+    <view class="{{tab == 'selected2'?'selectColor':'default'}}" bindtap="selected2">已入会</view>
+  </view>
+  <!--已注册  -->
+    <view class="{{tab == 'selected'?'show':'hidden'}}" style="width:100%;">
+      <view class='tooltip'>已经有{{registered.length}}人注册，快来看看吧...</view>
+      <view class='title-gray'>今天</view>
+      <view class='follow-info' wx:for="{{registered}}" wx:key="index">
+        <view class="imgbox" bindtap='showDetail' id="{{item.id}}">
+         <view wx:if="{{!item.thumbs}}" style='width:48px;height:48px;line-height:48px;font-size:22rpx;white-space:nowrap;background:#e2e2e2;text-align:center;border:1px solid #e2e2e2;'>暂无照片</view>
+         <image wx:else src="{{uploadUrl}}/images/{{item.thumbs}}" class='follow-image'></image>
+        </view>
+        <view class='follow-person'>
+          <view class='info-top'>
+            <text>{{item.nickname}}</text>
+            <image src="../../../../images/icons/certified.png" style='width:10px;height:10px;display:inline-block;padding-left:5px;'></image>
+            <text class='authent'>已认证</text>
+          </view>
+          <view class='info-bottom'>
+            <text>{{item.sex}}</text><text>{{item.age}}岁</text><text>{{item.education}}</text><text>{{item.height}}cm</text><text style='display:inline-block;max-width:95px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;vertical-align:top;'>{{item.native_place}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+  <!--已约见  -->
+  <view class="{{tab == 'selected1'?'show':'hidden'}}" style="width:100%;">
+      <view class='tooltip'>你已约见{{appointment.length}}人</view>
+      <view class='title-gray'>今天</view>
+      <view class='follow-info' wx:for="{{appointment}}" wx:key="index">
+        <view class="imgbox" bindtap='showDetail' id="{{item.id}}">
+         <view wx:if="{{!item.thumbs}}" style='width:48px;height:48px;line-height:48px;font-size:22rpx;white-space:nowrap;background:#e2e2e2;text-align:center;border:1px solid #e2e2e2;'>暂无照片</view>
+         <image wx:else src="{{uploadUrl}}/images/{{item.thumbs}}" class='follow-image'></image>
+        </view>
+        <view class='follow-person'>
+        <view class='info-top'>
+            <text>{{item.nickname}}</text>
+            <image src="../../../../images/icons/certified.png" style='width:10px;height:10px;display:inline-block;padding-left:5px;'></image>
+            <text class='authent'>已认证</text>
+          </view>
+          <view class='info-bottom'>
+           <text>{{item.sex}}</text><text>{{item.age}}岁</text><text>{{item.education}}</text><text>{{item.height}}cm</text><text style='display:inline-block;max-width:95px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;vertical-align:top;'>{{item.native_place}}</text>
+          </view>
+        </view>
+      </view>
+  </view>
+  <!--已入会  -->
+  <view class="{{tab == 'selected2'?'show':'hidden'}}" style="width:100%;">
+      <view class='tooltip'>恭喜你，已有{{join.length}}人入会噢</view>
+      <view class='title-gray'>今天</view>
+      <view class='follow-info' wx:for="{{join}}" wx:key="index">
+        <view class="imgbox" bindtap='showDetail' id="{{item.id}}">
+         <view wx:if="{{!item.thumbs}}" style='width:48px;height:48px;line-height:48px;font-size:22rpx;white-space:nowrap;background:#e2e2e2;text-align:center;border:1px solid #e2e2e2;'>暂无照片</view>
+         <image wx:else src="{{uploadUrl}}/images/{{item.thumbs}}" class='follow-image'></image>
+        </view>
+        <view class='follow-person'>
+        <view class='info-top'>
+            <text>{{item.nickname}}</text>
+            <image src="../../../../images/icons/certified.png" style='width:10px;height:10px;display:inline-block;padding-left:5px;'></image>
+            <text class='authent'>已认证</text>
+          </view>
+          <view class='info-bottom'>
+           <text>{{item.sex}}</text><text>{{item.age}}岁</text><text>{{item.education}}</text><text>{{item.height}}cm</text><text style='display:inline-block;max-width:95px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;vertical-align:top;'>{{item.native_place}}</text>
+          </view>
+        </view>
+      </view>
+  </view>
+</view>
+

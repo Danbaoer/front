@@ -1,0 +1,73 @@
+/* pages/my/redAppliate/info/info.wxss */
+.userinfo {
+  display: flex;
+  background: #ee99ff;
+  width: 100%;
+  height: 20vh;
+  flex-direction:column;
+}
+.userinfo-avatar {
+  width: 140rpx;
+  height: 140rpx;
+  margin: auto;
+  border-radius: 50%;
+  border: 1px solid #e2e2e2;
+}
+.userinfo-nickname {
+  height: 30px;
+  color:#fff;
+  text-align: center;
+  white-space: nowrap;
+}
+.examine{
+  color:#fff;
+  background:#35c5fa;
+  border-radius:8px;
+  padding:0 5px;
+  position:absolute;
+  top:11vh;
+  display:inline-block;
+  left:44vw;
+  font-size:24rpx;
+}
+.my-help{
+  margin-top: 20px;
+}
+.other{
+  background: #fafafa;
+  height:80vh;
+}
+.other view{
+  padding: 0 20rpx;
+  line-height: 42px;
+  border-radius:8px;
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+  margin:6px;
+}
+.must{
+  color:#4ccdfc;
+}
+.info-right{
+  display: inline-block;
+  text-align: right;
+  max-width: 170px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.other input{
+  padding-top: 10px;
+  border-bottom: none;
+}
+.submit{
+  width:28%;
+  border-radius:6px;
+  color:#fff;
+  font-size: 30rpx;
+  background:#ee99ff;
+  position: fixed;
+  bottom: 4vh;
+  left: 36vw;
+}

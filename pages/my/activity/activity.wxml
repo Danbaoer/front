@@ -1,0 +1,5 @@
+<!--pages/my/activity/activity.wxml-->
+<view class='activity' wx:for="{{resultData}}" wx:key="index">
+  <view class='title'>{{item.title}}</view>
+  <view class='content'>{{item.content}}</view>
+</view>

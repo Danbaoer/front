@@ -1,0 +1,55 @@
+/* pages/my/notify/notify.wxss */
+.nav{
+  width:100%;
+  line-height: 38px;
+  display:flex;
+  flex-direction:row;
+  background: #fafafa;
+  }
+.default{
+  text-align:center;
+  padding-left: 12rpx;
+  flex:1;
+  }
+.selectColor{
+  text-align:center;
+  color:#ee99ff;
+  flex:1;
+  }
+.show{
+  display:block;
+  }
+.hidden{
+  display:none;
+  }
+.time{
+  text-align: center;
+  background: #f6f6f6;
+  width: 40vw;
+  line-height: 26px;
+  margin: 10px auto;
+  border-radius: 12px;
+  padding: 2px 15rpx;
+}
+.apply{
+  background: #fafafa;
+  width: 95%;
+  margin: 10px auto;
+  border-radius: 10px;
+}
+.apply view{
+ padding-left: 30rpx;
+  line-height: 30px;
+}
+.apply view:nth-child(1){
+ font-size: 34rpx;
+ color: #333;
+  line-height: 34px;
+}
+.loginTip{
+  margin:180px auto;
+  color:#999;
+  text-align:center;
+  padding:8px 10px;
+  font-size:30rpx;
+}

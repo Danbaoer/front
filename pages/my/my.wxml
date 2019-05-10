@@ -1,0 +1,97 @@
+<!--pages/my/my.wxml-->
+<view class="container log-list" wx:if='{{!audit}}'>
+ <view class="userinfo">
+    <button class='login' wx:if="{{!userInfo}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权登录</button>
+    <block wx:else>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class='my-notice'>
+    <view bindtap='myIntegral'>
+      <image src='../../images/icons/integral.png'></image>
+      <text>我的积分</text>
+    </view>
+    <text style='height:80%;width:1px;color:#ccc;'></text>
+    <view bindtap='myNotify'>
+      <image src='../../images/icons/notice.png'></image>
+      <text>我的通知</text>
+    </view>
+  </view>
+  <view class='my-help'>
+    <view bindtap='setting'>
+      <image src='../../images/icons/info.png'></image>
+      <text>我要脱单</text>
+    </view>
+    <view>
+      <navigator url="./help/help">
+        <image src='../../images/icons/instructions.png'></image>
+        <text>使用帮助</text>
+      </navigator>
+    </view>
+    <view bindtap='suggest'>
+      <image src='../../images/icons/data.png'></image>
+      <text>我有意见</text>
+    </view>
+  </view>
+  <view class='my-foot'>
+    <view bindtap='redFlag'>
+        <image src='../../images/icons/red-appliate.png'></image>
+        <text>我要当红娘</text>
+    </view>
+    <view>
+      <navigator url="./activity/activity">
+        <image src='../../images/icons/activity.png'></image>
+        <text>活动通知</text>
+      </navigator>
+    </view>
+    <view>
+      <navigator url="./aboutUs/aboutUs">
+        <image src='../../images/icons/we.png'></image>
+        <text>关于我们</text>
+      </navigator>
+    </view>
+  </view>
+  <modal class="modal" hidden="{{loginFlag}}" no-cancel bindconfirm="modalOk" confirmText="我知道了">
+   <view class="modalTip">授权登录后才可以设置个人信息哦~</view>
+  </modal>
+  <modal class="modal" hidden="{{integralFlag}}" no-cancel bindconfirm="modalOk" confirmText="我知道了">
+   <view class="modalTip">登录后才可以查看积分哦~</view>
+  </modal>
+  <modal class="modal" hidden="{{notifyFlag}}" no-cancel bindconfirm="modalOk" confirmText="我知道了">
+   <view class="modalTip">登录后才可以查看通知哦~</view>
+  </modal>
+  <modal class="modal" hidden="{{suggestFlag}}" no-cancel bindconfirm="modalOk" confirmText="我知道了">
+   <view class="modalTip">登录后才可以反馈意见哦~</view>
+  </modal>
+  <modal class="modal" hidden="{{redFlag}}" no-cancel bindconfirm="modalOk" confirmText="我知道了">
+   <view class="modalTip">登录后才可以申请红娘哦~</view>
+  </modal>
+</view>
+<view class="container log-list" wx:if='{{audit}}'>
+  <view class="userinfo">
+    <button class='login' wx:if="{{!userInfo}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权登录</button>
+    <block wx:else>
+      <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class='my-help'>
+    <view>
+      <navigator url="./activity/activity">
+        <image src='../../images/icons/activity.png'></image>
+        <text>活动通知</text>
+      </navigator>
+    </view>
+    <navigator url="./suggest/suggest">
+      <image src='../../images/icons/data.png'></image>
+      <text>我有意见</text>
+    </navigator>
+    <view>
+      <view bindtap='call'>
+        <image src='../../images/icons/we.png'></image>
+        <text>联系我们</text>
+      </view>
+    </view>
+  </view>
+</view>

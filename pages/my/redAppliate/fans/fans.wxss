@@ -1,0 +1,73 @@
+/* pages/enroll/enroll.wxss */
+.nav{
+  width:100%;
+  line-height: 38px;
+  display:flex;
+  flex-direction:row;
+  background: #fafafa;
+  }
+.default{
+  text-align:center;
+  padding-left: 12rpx;
+  flex:1;
+  }
+.selectColor{
+  text-align:center;
+  color:#ee99ff;
+  flex:1;
+  }
+.show{
+  display:block;
+  }
+.hidden{
+  display:none;
+  }
+.tooltip{
+  color:#999;
+  padding:10rpx 12rpx;
+  line-height:30px;
+}
+.imgbox{
+  width: 48px;
+  height: 48px;
+  border-radius: 100%;
+}
+.follow-image{
+  width: 100%;
+  height: 100%;
+  background-size: 100%;
+  overflow: hidden;
+}
+.follow-info{
+  display: flex;
+  margin: 12px 10rpx;
+  padding-left: 10rpx;
+}
+.follow-person{
+  width:75vw;
+}
+.info-top{
+  color:#333;
+  padding-bottom: 10px;
+}
+.info-bottom{
+  color:#666;
+  white-space: nowrap;
+}
+.follow-person text{
+  padding-left: 20rpx;
+}
+.leave-message{
+  white-space: nowrap;
+  color: #4ccdfc;
+  padding-top: 42rpx;
+}
+.select-follow{
+  width: 26px;
+  height: 26px;
+  padding-top: 40rpx;
+}
+.select-follow image{
+  width: 100%;
+  height: 100%;
+}

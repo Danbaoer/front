@@ -1,0 +1,75 @@
+/* pages/my/integral/integral.wxss */
+.usable{
+  background: #fafafa;
+  margin: 10px auto;
+  width: 95%;
+  height: 180px;
+  text-align: center;
+  border-radius: 10px;
+}
+.usable-title{
+  line-height: 80px;
+  color: #4ccdfc;
+  font-size: 36rpx;
+}
+.usable-num{
+  color: #fea500;
+  font-size: 56rpx;
+  font-weight: 600;
+  padding-bottom: 28px;
+}
+.show-rule{
+  display: flex;
+}
+.show-rule text{
+  vertical-align: middle;
+}
+.rule,.profit{
+  flex: 1;
+  text-align: center;
+}
+.rule image,.profit image{
+  width: 16px;
+  height: 16px;
+  padding-right: 10rpx;
+  vertical-align: middle;
+}
+.record{
+  padding-left: 18rpx;
+  line-height: 30px;
+}
+.record-detail{
+  margin: auto;
+  width: 95%;
+  background: #fafafa;
+  border-radius: 10px;
+  border: 1px solid #e2e2e2;
+}
+.record-detail view{
+  padding: 0 12rpx;
+  line-height: 40px;
+}
+.record-detail view text:nth-child(2){
+  float: right;
+  color: #fea500;
+}
+.modal-title{
+  font-size: 40rpx;
+  color:#333;
+  text-align: center;
+  padding-left: 15rpx;
+  border-bottom: 1px solid #999;
+  padding-bottom: 10px;
+}
+.close-rule{
+  float: right;
+  width: 20px;
+  height: 20px;
+}
+.use{
+  line-height: 42px; 
+  font-size: 36rpx;
+}
+.use view{
+  line-height: 40px; 
+}

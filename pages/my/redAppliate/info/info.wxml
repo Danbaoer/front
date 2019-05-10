@@ -1,0 +1,69 @@
+<!--pages/my/redAppliate/info/info.wxml-->
+<view class="container">
+ <view class="userinfo">
+    <image class="userinfo-avatar" src="{{userImg}}" background-size="cover"></image>
+    <view class="examine">{{detail.status == 1 ? '已审核': '待审核'}}</view>
+    <view class="userinfo-nickname">{{userName}}</view>
+ </view>
+    <form class='other' report-submit bindsubmit="formSubmit" bindreset="formReset">
+      <view>
+        <text>姓名<text class='must'>*</text></text>
+        <input name="username" value='{{detail.username}}' class='info-right'/>
+      </view>
+    <view>
+      <text>性别<text class='must'>*</text></text>
+      <radio-group class="radio-group info-right" bindchange="radioSexChange" data-element="detail.sex">
+        <label class="radio" wx:for="{{sex}}" wx:key="key">
+          <radio value="{{index}}" name="sex" checked="{{index == detail.sex?true:false}}"/> {{item}}
+        </label>
+      </radio-group>
+    </view>
+      <view>
+        <text>年龄</text>
+        <input name="age" type='number' value='{{detail.age}}' class='info-right'/>
+      </view>
+      <view>
+        <text>职业</text>
+        <input name="profession" value='{{detail.profession}}' class='info-right'/>
+      </view>
+      <view>
+        <text>微信号<text class='must'>*</text></text>
+        <input name="wechat" value='{{detail.wechat}}' class='info-right'/>
+      </view>
+      <view>
+        <text>手机号<text class='must'>*</text></text>
+        <input type='number' name="mobile" value='{{detail.mobile}}' type='number' maxlength='12' class='info-right'/>
+      </view>
+      <view>
+        <text>居住地</text>
+        <view class='info-right'>
+          <input name="address" value='{{detail.address}}' data-element="detail.address" disabled="true" bindtap="selectDistrict" />
+        </view>
+      </view>
+      <button formType="submit" class='submit'>提交申请</button>
+  </form>
+      <!--城市三级联动-->
+  <view class="picker-view" animation="{{animationAddressMenu}}" style="background:#fff;position:fixed;bottom:0;width:100%;visibility:{{addressMenuIsShow ? 'visible':'hidden'}};">
+    <view style="height:12% ;width:90%;margin:10px auto 0">
+      <text catchtap="cityCancel">取消</text>
+      <text style="float: right" catchtap="citySure">确定</text>
+    </view>
+    <picker-view style="width: 100%; height: 350rpx;text-align:center;" bindchange="cityChange" value="{{value}}">
+      <picker-view-column>
+        <view wx:for="{{provinces}}" class="picker-item" wx:key="">
+          {{item.name}}</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{citys}}" class="picker-item" wx:key="">
+          {{item.name}}</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{areas}}" class="picker-item" wx:key="">
+          {{item.name}}</view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+</view>
+
+
+

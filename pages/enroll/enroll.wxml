@@ -1,0 +1,84 @@
+<!--pages/enroll/enroll.wxml-->
+<view class="container" wx:if='{{!audit}}'>
+  <view class='nav bc_white'>
+    <!--喜欢我的人-->
+    <view class="{{tab == 'selected'?'selectColor':'default'}}" bindtap="selected">喜欢我的人</view>
+    <!--我喜欢的人-->
+    <view class="{{tab == 'selected1'?'selectColor':'default'}}" bindtap="selected1">我喜欢的人</view>
+  </view>
+  <view wx:if="{{!token}}" class='loginTip'>
+    <view>暂时看不到喜欢消息哦~需先授权登录，您可点击下方，即可查看喜欢您的人哦~</view>
+    <view bindtap='toLogin' class="loginBtn">登 录</view>
+  </view>
+  <view wx:else>
+    <!--喜欢我的人显示内容  -->
+      <view class="{{tab == 'selected'?'show':'hidden'}}" style="width:100%;">
+        <view class='tooltip'>已经有{{attentionMeCount}}人喜欢了你，快来看看吧...</view>
+        <view class='title-gray'>今天</view>
+        <view wx:for="{{attentionMe}}" wx:key="item">
+        <view class='follow-info'>
+          <view class="imgbox" bindtap='showDetail' id="{{item.uid}}">
+          <view wx:if="{{!item.thumbs}}" style='width:48px;height:48px;line-height:48px;font-size:22rpx;white-space:nowrap;background:#e2e2e2;text-align:center;border:1px solid #e2e2e2;'>暂无照片</view>
+          <image wx:else src="{{uploadUrl}}/images/{{item.thumbs}}" class='follow-image'></image>
+          </view>
+          <view class='follow-person'>
+            <view class='info-top'>
+              <text>{{item.nickname}}</text>
+              <image src="../../images/icons/certified.png" style='width:10px;height:10px;display:inline-block;padding-left:5px;vertical-align: middle;'></image>
+              <text class='authent'>已认证</text>
+            </view>
+            <view class='info-bottom'>
+              <text>{{item.sex}}</text><text>{{item.age}}岁</text><text>{{item.education}}</text><text>{{item.height}}cm</text><text style='display:inline-block;max-width:150px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;vertical-align:top;'>{{item.native_place}}</text>
+            </view>
+          </view>
+        </view>
+        </view>
+      </view>
+
+    <!--我喜欢的人内容  --> 
+    <view class="{{tab == 'selected1'?'show':'hidden'}}" style="width:100%;">
+        <view class='tooltip'>你已喜欢{{myAttentionCount}}人</view>
+        <view class='title-gray'>今天</view>
+        <view wx:for="{{myAttention}}" wx:key="item">
+        <view class='follow-info'>
+          <view class="imgbox" bindtap='showDetail' id="{{item.uid}}">
+          <view wx:if="{{!item.thumbs}}" style='width:48px;height:48px;line-height:48px;font-size:22rpx;white-space:nowrap;background:#e2e2e2;text-align:center;border:1px solid #e2e2e2;'>暂无照片</view>
+          <image wx:else src="{{uploadUrl}}/images/{{item.thumbs}}" class='follow-image'></image>
+          </view>
+          <view class='follow-person'>
+          <view class='info-top'>
+              <text>{{item.nickname}}</text>
+              <image src="../../images/icons/certified.png" style='width:10px;height:10px;display:inline-block;padding-left:5px;vertical-align: middle;'></image>
+              <text class='authent'>已认证</text>
+            </view>
+            <view class='info-bottom'>
+            <text>{{item.sex}}</text><text>{{item.age}}岁</text><text>{{item.education}}</text><text>{{item.height}}cm</text><text style='display:inline-block;max-width:95px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;vertical-align:top;'>{{item.native_place}}</text>
+            </view>
+          </view>
+          <view class='select-follow'>
+            <image src="../../images/icons/follow_heart.png" bindtap='toggleFollow' id='{{item.uid}}'></image>
+          </view>
+        </view>
+        </view>
+    </view>
+  </view>
+</view>
+<view wx:if='{{audit}}'>
+<view class="container">
+  <image src="../../images/icons/inhert.jpg" style="width:100%;height:240px;background-size:100%;"></image>
+  <form style='text-align:center;' report-submit bindsubmit="formSubmit" bindreset="formReset">
+    <view style='padding-top:12px;'>
+      <text class='tit'>姓名</text><input name="username" value='{{username}}' class='info-right'/>
+    </view>
+    <view>
+      <text class='tit'>年龄</text>
+      <input name="age" type='number' value='{{age}}' class='info-right'/>
+    </view>
+    <view>
+      <text class='tit'>地址</text>
+      <input name="profession" value='' class='info-right'/>
+    </view>
+    <button formType="submit" style='background:#ee99ff;color:#fff;width:35%;margin-top:55px;'>提交申请</button>
+  </form>
+</view>
+</view>

@@ -1,0 +1,4 @@
+/* pages/message/leave-message/leave-message.wxss */
+.container{
+  padding-left: 20rpx;
+}

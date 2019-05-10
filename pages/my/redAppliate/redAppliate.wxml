@@ -1,0 +1,42 @@
+<!--pages/my/redAppliate/redAppliate.wxml-->
+<view class="container">
+ <view class="userinfo">
+    <image class="userinfo-avatar" src="{{userImg}}" background-size="cover"></image>
+    <view class="examine">{{examine == 1 ? '已审核': '待审核'}}</view>
+    <view class="userinfo-nickname">{{userName}}</view>
+  </view>
+  <view class='my-help'>
+    <view>
+      <view bindtap='spread'>
+        <image src='../../../images/icons/spread.png'></image>
+        <text>我要推广</text>
+      </view>
+    </view>
+    <view>
+      <navigator url="./fans/fans">
+        <image src='../../../images/icons/fanss.png'></image>
+        <text>我的粉丝</text>
+      </navigator>
+    </view>
+    <view>
+      <navigator url="./info/info?userImg={{userImg}}&userName={{userName}}&examine={{examine}}">
+        <image src='../../../images/icons/proposal.png'></image>
+        <text>我的资料</text>
+      </navigator>
+    </view>
+  </view>
+  <view class='my-foot'>
+    <view bindtap='service'>
+      <image src='../../../images/icons/service.png'></image>
+      <text>找客服</text>
+    </view>
+    <view>
+    </view>
+    <view>
+    </view>
+  </view>
+
+
+</view>
+
+

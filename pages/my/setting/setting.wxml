@@ -1,0 +1,148 @@
+<!--pages/index/detail/detail.wxml-->
+<view class="detail">
+  <view class="title-default">
+    <text class='line'></text>本人照片(请您至少上传2张并裁剪成长方形形状)
+  </view>
+  <view class='image-box'>
+    <view style='width:48vw;height:200px;flex:1;position:relative;overflow:hidden;'>
+      <view wx:if='{{!uploadOne}}' bindtap='uploadImage' data-element="uploadOne" style='font-size:22rpx;border:1px solid #f2f2f2;line-height:198px;text-align:center;'>点击上传</view>
+      <image wx:else src="{{uploadUrl}}/images/{{uploadOne}}" bindtap='uploadImage' data-element="uploadOne" mode='scaleToFill' style='width:100%;border:1px solid #f2f2f2;display:block;'></image>
+      <text class='deleteIcon' bindtap='deleteImage' data-element="uploadOne">
+        <text style='color:#fff;'>删除</text>
+      </text>
+    </view>
+    <view style='width:45vw;flex:1;margin-left:5px;'>
+      <view style='position:relative;height:96px;overflow:hidden;'>
+      <view wx:if='{{!uploadTwo}}' bindtap='uploadImage' data-element="uploadTwo" style='font-size:22rpx;border:1px solid #f2f2f2;line-height:94px;text-align:center;'>点击上传</view>
+        <image wx:else src="{{uploadUrl}}/images/{{uploadTwo}}" bindtap='uploadImage' data-element="uploadTwo" style='width:100%;border:1px solid #f2f2f2;height:100%;display:block;'></image>
+          <text class='deleteIcon' bindtap='deleteImage' data-element="uploadTwo">
+            <text style='color:#fff;'>删除</text>
+          </text>
+        </view>
+        <view style='position:relative;height:96px;margin-top:8px;overflow:hidden;'>
+        <view wx:if='{{!uploadThree}}' bindtap='uploadImage' data-element="uploadThree" style='font-size:22rpx;border:1px solid #f2f2f2;line-height:94px;text-align:center;'>点击上传</view>
+          <image wx:else src="{{uploadUrl}}/images/{{uploadThree}}" bindtap='uploadImage' data-element="uploadThree" style='width:100%;height:100%;border:1px solid #f2f2f2;display:block;'></image>
+          <text class='deleteIcon' bindtap='deleteImage' data-element="uploadThree">
+            <text style='color:#fff;'>删除</text>
+          </text>
+        </view>
+    </view>
+</view>
+<view class="title-default">
+  <text class='line'></text>基本信息
+  <text>(<text class='must'>*</text>为必填信息)</text>
+</view>
+<view class='other'>
+<form report-submit bindsubmit="formSubmit" bindreset="formReset">
+  <view>
+      <text>昵称</text>
+      <text class='info-right'>{{detail.nickname}}</text>
+  </view>
+  <!-- <view>
+      <text>快手号</text>
+      <input name="quick_worker" value='{{detail.quick_worker}}' class='info-right'/>
+  </view> -->
+  <view>
+      <text>性别<text class='must'>*</text></text>
+      <radio-group class="radio-group info-right" bindchange="radioSexChange" data-element="detail.sex">
+          <label class="radio" wx:for="{{sex}}" wx:key="key">
+              <radio name="sex" value="{{index}}" checked="{{index == detail.sex?true:false}}"/> {{item}}
+          </label>
+      </radio-group>
+  </view>
+
+  <view>
+      <text>户籍地<text class='must'>*</text></text>
+      <view class='info-right'>
+          <input name="native_place" value='{{detail.native_place}}' data-element="detail.native_place" disabled="true" bindtap="selectDistrict"/>
+      </view>
+  </view>
+
+  <view>
+      <text>出生年月<text class='must'>*</text></text>
+      <picker class='info-right' name="birthday" mode="date" value="{{detail.birthday}}" bindchange="bindDateChange" data-element="detail.birthday">
+          {{detail.birthday}}
+      </picker>
+  </view>
+
+  <view>
+      <text>身高<text class='must'>*</text></text>
+      <view class='info-right'>
+          <input type='number' name="height" value='{{detail.height}}' style='display:inline-block;width:80px;'/><text style='margin-top:-1px;'>cm</text>
+      </view>
+  </view>
+  <view>
+      <text>体重<text class='must'>*</text></text>
+      <view class='info-right'>
+          <input type='digit' name="weight" value='{{detail.weight}}' style='display:inline-block;width:80px;'/><text style='margin-top:-1px;'>kg</text>
+      </view>
+  </view>
+  <view>
+      <text>学历<text class='must'>*</text></text>
+      <picker class='info-right' name="education" range="{{education}}" value="{{detail.education}}" bindchange="bindEducationChange" data-element="detail.education">
+          {{education[detail.education]}}
+      </picker>
+  </view>
+  <view>
+      <text>婚姻状况<text class='must'>*</text></text>
+      <picker class='info-right' name="marry_status" range="{{marry_status}}" value="{{detail.marry_status}}" bindchange="bindMarryStatusChange" data-element="detail.marry_status">
+          {{marry_status[detail.marry_status]}}
+      </picker>
+  </view>
+  <view>
+      <text>工作地</text>
+      <input class='info-right' name="office_place" value='{{detail.office_place}}' data-element="detail.office_place"    disabled="true" bindtap="selectDistrict"/>
+  </view>
+  <view>
+      <text>职业<text class='must'>*</text></text>
+      <input name="profession" value='{{detail.profession}}' class='info-right'/>
+  </view>
+  <view>
+      <text>月收入<text class='must'>*</text></text>
+      <input type='number' name="salary" value='{{detail.salary}}' type="number" class='info-right'/>
+  </view>
+  <view>
+      <text>购房情况</text>
+      <picker class='info-right' name="house_status" range="{{house_status}}" value="{{detail.house_status}}" bindchange="bindhouseStatusChange" data-element="detail.house_status">
+          {{house_status[detail.house_status]}}
+      </picker>
+  </view>
+  <view>
+      <text>微信号<text class='must'>*</text></text>
+      <input name="wechat" value='{{detail.wechat}}' class='info-right'/>
+  </view>
+  <text style='display:block;color:#ccc;font-size:24rpx;padding-left:24rpx;'>请填写可联系到本人的微信或手机，否则无法通过审核。</text>
+  <view>
+      <text>手机号</text>
+      <input type='number' name="mobile" value='{{detail.mobile}}' type='number' maxlength='12' class='info-right'/>
+  </view>
+  <view style='flex-direction:column;border:none;'>
+      <text>个人介绍</text>
+      <textarea name="introduction" class='indent' value="{{detail.introduction}}"></textarea>
+  </view>
+  <view style='flex-direction:column;border:none;'>
+      <text>择偶要求</text>
+      <textarea name="request" class='indent' value="{{detail.request}}"></textarea>
+  </view>
+  <button formType="submit" style='width:25vw;margin:10px auto;border-radius:6px;color:#666;letter-spacing:1px;background:#ee99ff;color:#fff;font-size:30rpx;'>提交申请</button>
+</form>
+</view>
+<!--城市三级联动-->
+<view class="picker-view" animation="{{animationAddressMenu}}" style="background:#fff;z-index:3;position:fixed;bottom:0;width:100%;visibility:{{addressMenuIsShow ? 'visible':'hidden'}};">
+  <view style="height:10% ;width:90%;margin:10px auto 0">
+    <text catchtap="cityCancel">取消</text>
+    <text style="float: right" catchtap="citySure">确定</text>
+  </view>
+  <picker-view style="width: 100%; height: 400rpx;text-align:center;" bindchange="cityChange" value="{{value}}">
+    <picker-view-column>
+      <view wx:for="{{provinces}}" class="picker-item" wx:key="">{{item.name}}</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{citys}}" class="picker-item" wx:key="">{{item.name}}</view>
+      </picker-view-column>
+      <picker-view-column>
+        <view wx:for="{{areas}}" class="picker-item" wx:key="">{{item.name}}</view>
+      </picker-view-column>
+    </picker-view>
+  </view>
+</view>

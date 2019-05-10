@@ -1,0 +1,147 @@
+<!--index.wxml-->
+<view class="container" wx:if='{{!audit}}'>
+  <view class="title-default">
+    <text class='line'></text>今日推荐
+    <form bindsubmit="sign" report-submit class='right-title'>
+      <button formType="submit" class='sign'>签到</button>
+    </form>
+  </view>
+  <view hidden='{{animateFlag}}'>
+    <view class='sign-shade'>
+      <image src='../../images/icons/animate.png' class='animate'></image>
+        <view style='position:absolute;top:45vh;left:50vw;color:#fff;'>+<text>{{signIn}}</text></view>
+      <view class='sign-info'>
+        <view>您已连续签到<text>{{signDays}}</text>天</view>
+        <view>积分满60,就可以查看你心意人的微信喽~</view>
+      </view>
+    </view>
+  </view>
+<!-- 轮播图 -->
+   <swiper class="swiper_box" autoplay interval="3000" interval="3000" display-multiple-items="2">
+    <view wx:for="{{recommends}}" wx:key="index">
+      <swiper-item>
+        <image wx:if="{{item.thumbs}}" class='scrollImg' mode='widthFix' src="{{uploadUrl}}/images/{{item.thumbs}}" bindtap='showDetail' id='{{item.id}}'></image>
+        <view wx:else bindtap='showDetail' id='{{item.id}}' style='height:100%;background:#e2e2e2;text-align:center;;width:100%;padding-top:10vh;border:1px solid #e2e2e2;'>暂无照片</view>
+      </swiper-item>
+    </view>
+  </swiper>
+<!--会员  -->
+<view class='vip' wx:if='{{!audit}}'>
+  <view class="title-default">
+    <text class='line'></text>会员
+    <view class='search'>
+      <image src='../../images/icons/arrow.png' style='width:10px;height:8px;padding-right:12rpx;'></image>
+      <text bindtap='searchDetail'>设置查询条件</text> 
+    </view> 
+  </view>
+  <view class='images'>
+    <view class='image-box' wx:for="{{vipInfos}}" wx:key="">
+      <image wx:if="{{item.thumbs}}" src="{{uploadUrl}}/images/{{item.thumbs}}" mode='scaleToFill' bindtap='showDetail' id='{{item.id}}' style='border:2px solid #eee;'></image>
+      <view wx:else style='width:100%;'>
+       <image bindtap='showDetail' id='{{item.id}}' src="../../images/icons/inhert.jpg"></image>
+        <!-- <view style="margin:100px auto;">暂无照片</view> -->
+      </view>
+      <view class='image-head'>
+        <text>{{item.nickname}}</text>
+        <image src="../../images/icons/certified.png" mode='widthFix' style='width:10px;height:10px;display:inline-block;padding-left:5px;vertical-align:middle;'></image>
+        <text class='authent'>已认证</text>
+      </view>
+      <view class='image-foot'>
+        <text>{{item.sex}}</text><text>{{item.address}}</text><text>{{item.age}}岁</text><text>{{item.height}}cm</text><text>{{item.education}}</text><text>{{item.house_status}}</text>
+      </view>
+    </view>
+  </view>
+  </view><!--查询条件  -->
+  <view class='search-detail' hidden="{{modalFlag}}">
+    <form bindsubmit="formSubmit" bindreset="formReset">
+      <!-- <view class="section">
+        <view class="section__title">--编号--</view>
+        <view style='text-align:center;'>
+          <input name="code" type='number' style='display:inline-block;width:130px;border:1px solid #e2e2e2;border-radius:6px;'/>
+        </view>
+      </view> -->
+      <view class="section">
+        <view class="section__title">--性别--</view>
+        <view>
+          <radio-group name="sex" class="group" bindchange="radioCheckedChange">
+            <label class="{{radioCheckVal==-1?'active':''}}">查看全部
+            <radio hidden="true" value="-1" checked></radio>
+          </label>
+          <label class="{{radioCheckVal==2?'active':''}}"> 只看女生
+            <radio hidden="true" value="2"></radio>
+          </label>
+          <label class="{{radioCheckVal==1?'active':''}}"> 只看男生
+            <radio hidden="true" value="1"></radio>
+          </label>
+          </radio-group>
+        </view>
+      </view>
+      <view class='age-area'>
+        <!-- <view class="age">
+          <view class="section__title">--年龄--</view>
+          <picker mode="time" name="age" value="" start="18" end="100" bindchange="bindAgeChange">  
+          <view class="picker">{{age}}</view>  
+          </picker>  
+        </view> -->
+        <view class="age">
+          <view class="section__title">--年龄--</view>
+          <view>
+            <input name="agestart" value="18" type='number' style='display:inline-block;width:22px;vertical-align:middle;border-bottom:1px solid #e2e2e2;'/>岁 - <input name="ageend" value="60" type='number' style='display:inline-block;width:22px;vertical-align:middle;border-bottom:1px solid #e2e2e2;'/>岁</view>
+        </view>
+        <view class="area">
+          <view class="section__title">--地区--</view>
+          <!--<picker mode="multiSelector"  name="area" bindchange="selectDistrict" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">-->
+            <input class="picker" name="area" disabled="true" bindtap="selectDistrict" value="{{areaInfo}}" />
+          <!--</picker>-->
+        </view>
+      </view>
+      <view class="junior-college">
+        <view class="section__title">--学历--</view>
+         <checkbox-group name="education" class="junior-group" bindchange="checkChange">
+          <label wx:for="{{checkCheckVal}}" wx:key="" class="{{item.checked?'is_checked':''}}">{{item.name}}
+            <checkbox value="{{item.value}}" checked="{{item.checked}}"></checkbox>
+          </label>
+        </checkbox-group>
+      </view>
+      <view class="btn-area">
+        <button size='mini' formType="reset">取消</button>
+        <button size='mini' formType="submit">确定</button>
+      </view>
+    </form>
+    <!--城市三级联动-->
+    <view class="picker-view" animation="{{animationAddressMenu}}" style="background:#fff;position:fixed;bottom:0;width:100%;visibility:{{addressMenuIsShow ? 'visible':'hidden'}};">
+      <view style="height:10% ;width:90%;margin:10px auto 0">
+        <text catchtap="cityCancel">取消</text>
+        <text style="float: right" catchtap="citySure">确定</text>
+      </view>
+      <picker-view style="width: 100%; height: 350rpx;text-align:center;" bindchange="cityChange" value="{{value}}">
+        <picker-view-column>
+          <view wx:for="{{provinces}}" class="picker-item" wx:key="">
+            {{item.name}}</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view wx:for="{{citys}}" class="picker-item" wx:key="">
+            {{item.name}}</view>
+        </picker-view-column>
+        <picker-view-column>
+          <view wx:for="{{areas}}" class="picker-item" wx:key="">
+            {{item.name}}</view>
+        </picker-view-column>
+      </picker-view>
+    </view>
+  </view>
+</view>
+<view class='container' wx:if='{{audit}}'>
+<image src='../../images/icons/shouye.jpg' style='width:100%;'></image>
+  <view class='title'>公司简介</view>
+  <view class='content'>
+  公司创办于2016年，在洪洞工商局正规注册，公司秉承用心服务好每位客户，以服务赢得尊重，以专业取得信赖！采用专业团队跟踪服务，让每一位客户省钱、省心，是我们的服务宗旨，我们以真诚、经济、高效的理念服务于大槐树下的父老乡亲。
+  </view>
+  <view class='content'>
+  公司地址：实验小学正对面巷内（泽瑞家园东巷）
+  </view>
+  <view class='content'>
+  联系方式：18649578507（张）
+  </view>
+</view>
+

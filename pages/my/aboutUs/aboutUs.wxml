@@ -1,0 +1,9 @@
+<!--pages/my/aboutUs/aboutUs.wxml-->
+<view class='about'>
+  <view class='title'>公司简介</view>
+  <view class='content'>
+  公司创办于2016年，是洪洞首家工商正规注册的婚介公司，公司秉承用心服务好每一位会员，以服务赢得尊重，以专业取得信赖！采用一对一精准匹配，真正发挥婚介的中介作用，让单身朋友省钱，省时找心仪的另一半！我们以真实，高效，成功的理念服务于大槐树下的父老乡亲。
+  </view>
+  <view class='content'>联系方式：0357-3434668
+  </view>
+</view>

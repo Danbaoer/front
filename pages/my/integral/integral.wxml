@@ -1,0 +1,58 @@
+<!--pages/my/integral/integral.wxml-->
+<view class='container'>
+  <view class='usable'>
+    <view class='usable-title'>可用积分</view>
+    <view class='usable-num'>{{integration}}</view>
+    <view class='show-rule'>
+      <view class='rule' bindtap='rule'>
+        <image src="../../../images/icons/rule.png"></image>
+        <text>积分规则</text>
+      </view>
+      <view class='profit' bindtap='profit'>
+        <image src='../../../images/icons/integral-select.png'></image>
+        <text>去赚积分</text>
+      </view>
+    </view>
+  </view>
+  <view style='width:100%;'>
+    <view class='record'>积分记录(签到可获得积分哦~)</view>
+    <view class='record-detail'>
+      <view>
+        <text>获得：{{total_integration}}</text>
+        <text>使用：{{cost_integration}}</text>
+      </view>
+      <view wx:for="{{logs}}" wx:key="index">
+        <view>
+          <text>{{item.title}}</text><text>{{item.integration}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <modal class="modal" hidden="{{modalFlag}}" no-cancel bindconfirm="close" confirmText="">
+   <view class="modal-title">
+    <image style='width:16px;height:16px;padding-right:10rpx;' src="../../../images/icons/integral-org.png"></image>
+    <text>积分规则</text>
+    <image class='close-rule' bindtap='closeRule' src='../../../images/icons/close.png'></image>
+   </view>
+   <view>
+    <view class='use'>如何获得积分？</view>
+    <view>
+      首次签到得6分(连续签到奖励更多哟~),连续签到累加得分为:6分，7分，8分，9分，10分，连续签到6天及以上,每天得10分。中间断签后，重新开始
+    </view>
+   </view>
+   <view>
+    <view class='use'>积分如何使用？</view>
+    <view>
+    积分满60分后，可以用积分查看会员的联系方式,每条消费60个积分，同一个会员的联系方式，不会重复扣积分
+    </view>
+   </view>
+  </modal>
+  <!--去赚积分  -->
+  <view hidden="{{integralFlag}}" style='width:100%;position:fixed;bottom:0;left:0;'>
+    <view style="width:100%;background:#000;position:absolute;bottom:0;left:0;">
+      <button bindtap='sign'>去签到</button>
+      <button open-type="share" bindtap='share'>去转发</button>
+      <button bindtap='closeIntegral'>取消</button>
+    </view>
+  </view>
+</view>

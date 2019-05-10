@@ -1,0 +1,27 @@
+/* pages/my/activity/activity.wxss */
+.activity{
+  font-size: 30rpx;
+  line-height: 26px;
+  padding: 0 20rpx;
+  color: #666;
+  font-family:Helvetica;
+}
+.title{
+  padding-top: 8px;
+  color: #333;
+  font-weight: bold;
+}
+.content{
+  text-indent: 1.5em;
+}
+.call{
+  display: inline-block;
+  padding: 4px 15px;
+  letter-spacing: 2px;
+  background:#ee99ff;
+  border-radius: 8px;
+  color:#fff;
+  position: fixed;
+  bottom:15px;
+  left: 40vw;
+}

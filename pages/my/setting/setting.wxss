@@ -1,0 +1,62 @@
+/* pages/index/detail/detail.wxss */
+.detail{
+  font-size: 30rpx;
+  color: #666;
+  font-family:Helvetica;
+}
+.detail view, .other view{
+  clear: both;
+}
+.image-box{
+  padding: 0 20rpx;
+  display: flex;
+  height: 200px;
+  border-radius: 10px;
+  margin: 5px 0;
+}
+.image-box image{
+  width: 100%;
+  margin: 7px auto;
+}
+.other{
+  background: #fafafa;
+  height:100%;
+}
+.other view{
+  padding: 0 20rpx;
+  line-height: 42px;
+  border-radius:8px;
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+  margin:6px;
+}
+.must{
+  color:#4ccdfc;
+}
+.info-right{
+  display: inline-block;
+  text-align: right;
+  max-width: 170px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.other input{
+  padding-top: 10px;
+  border-bottom: none;
+}
+.deleteIcon{
+  position:absolute;
+  top:6px;
+  right:5px;
+  padding:3px;
+  border:1px solid #e2e2e2;
+  border-radius:4px;
+  background: #000;
+  opacity: 0.3;
+  font-size:22rpx;
+}
+textarea{
+  width: 99%;
+}

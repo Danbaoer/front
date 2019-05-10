@@ -1,0 +1,54 @@
+/* pages/my/redAppliate/redAppliate.wxss */
+.userinfo {
+  display: flex;
+  background: #ee99ff;
+  width: 100%;
+  height: 150px;
+  flex-direction:column;
+
+}
+.userinfo-avatar {
+  width: 140rpx;
+  height: 140rpx;
+  margin: auto;
+  border-radius: 50%;
+  border: 1px solid #e2e2e2;
+}
+.userinfo-nickname {
+  height: 30px;
+  color:#fff;
+  text-align: center;
+  white-space: nowrap;
+}
+.examine{
+  color:#fff;
+  background:#35c5fa;
+  border-radius:8px;
+  padding:0 5px;
+  position:absolute;
+  top:12vh;
+  display:inline-block;
+  left:44vw;
+  font-size:24rpx;
+}
+.my-help{
+  margin-top: 20px;
+}
+.my-help,.my-foot{
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  line-height: 40px;
+  padding: 0 15rpx;
+}
+.my-help image,.my-foot image{
+  display: block;
+  width: 28px;
+  height: 28px;
+  margin: 8px auto;
+}
+.my-help view,.my-foot view{
+  flex: 1;
+  justify-content: space-between;
+  text-align: center;
+}

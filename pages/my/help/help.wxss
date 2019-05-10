@@ -1,0 +1,16 @@
+/* pages/my/help/help.wxss */
+.help{
+  font-size: 30rpx;
+  line-height: 26px;
+  padding: 0 20rpx;
+  color: #666;
+  font-family:Helvetica;
+}
+.title{
+  padding-top: 8px;
+  color: #333;
+  font-weight: bold;
+}
+.content{
+  text-indent: 1.5em;
+}
